@@ -28,8 +28,8 @@
     "pub": "npm publish --access public"
   },
   "devDependencies": {
-    "@gerhobbelt/babel-cli": "^4.5.0",
-    "@gerhobbelt/markdown-it": "^4.0.1",
-    "standard": "^4.0.1"
+    "@gerhobbelt/babel-cli": "7.2.1-26",
+    "@gerhobbelt/markdown-it": "8.4.2-24",
+    "standard": "12.0.1"
   }
 }
