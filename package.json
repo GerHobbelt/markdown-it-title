@@ -1,6 +1,6 @@
 {
-  "name": "markdown-it-title",
-  "version": "1.0.4",
+  "name": "@gerhobbelt/markdown-it-title",
+  "version": "1.0.4-1",
   "description": "Extract title during markdown-it parsing.",
   "keywords": [
     "markdown-it-plugin"
@@ -24,11 +24,12 @@
     "build": "babel index.es6.js -o index.js",
     "lint": "standard index.es6.js test.js",
     "prepublish": "npm run build",
-    "test": "npm run build && npm run lint && babel-node test.js"
+    "test": "npm run build && npm run lint && babel-node test.js",
+    "pub": "npm publish --access public"
   },
   "devDependencies": {
-    "babel": "^4.5.0",
-    "markdown-it": "^4.0.1",
+    "@gerhobbelt/babel-cli": "^4.5.0",
+    "@gerhobbelt/markdown-it": "^4.0.1",
     "standard": "^4.0.1"
   }
 }
