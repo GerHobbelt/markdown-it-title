@@ -23,7 +23,7 @@
   "scripts": {
     "build": "babel index.es6.js -o index.js",
     "lint": "standard index.es6.js test.js",
-    "prepublish": "npm run build",
+    "prepublish-orig": "npm run build",
     "test": "npm run build && npm run lint && babel-node test.js",
     "pub": "npm publish --access public"
   },
