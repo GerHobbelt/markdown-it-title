@@ -7,7 +7,7 @@
     "markdown-it",
     "markdown"
   ],
-  "repository": GerHobbelt/markdown-it-title",
+  "repository": "GerHobbelt/markdown-it-title",
   "license": "Unlicense",
   "author": {
     "name": "Valérian Galliat",
@@ -31,16 +31,16 @@
     "@gerhobbelt/markdown-it": "10.0.0-34",
     "@gerhobbelt/markdown-it-testgen": "0.1.6-7",
     "browserify": "16.5.1",
-    "babel": "^4.5.0",
+    "chai": "4.2.0",
     "cross-env": "7.0.2",
     "eslint": "7.0.0",
-    "markdown-it": "^4.0.1",
+    "mocha": "7.1.2",
     "nyc": "15.0.1",
     "rollup": "2.9.0",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-json": "4.0.0",
     "rollup-plugin-node-resolve": "5.2.0",
-    "standard": "^4.0.1"
+    "terser": "4.6.13"
   },
   "reporter": [
     "lcov",
