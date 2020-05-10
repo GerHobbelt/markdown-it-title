@@ -1,2 +1,4 @@
-/node_modules
-/index.js
+node_modules/
+coverage/
+*.log
+/.nyc_output

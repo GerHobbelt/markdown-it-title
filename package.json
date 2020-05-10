@@ -3,33 +3,48 @@
   "version": "1.0.4-2",
   "description": "Extract title during markdown-it parsing.",
   "keywords": [
-    "markdown-it-plugin"
+    "markdown-it-plugin",
+    "markdown-it",
+    "markdown"
   ],
-  "homepage": "https://github.com/valeriangalliat/markdown-it-title",
+  "repository": GerHobbelt/markdown-it-title",
   "license": "Unlicense",
   "author": {
     "name": "Valérian Galliat",
     "url": "http://val.codejam.info/"
   },
-  "files": [
-    "README.md",
-    "UNLICENSE",
-    "index.js"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/valeriangalliat/markdown-it-title.git"
-  },
+  "main": "index.js",
+  "module": "dist/markdown-it.mjs",
   "scripts": {
-    "build": "babel index.es6.js -o index.js",
-    "lint": "standard index.es6.js test.js",
-    "prepublish-orig": "npm run build",
-    "test": "npm run build && npm run lint && babel-node test.js",
+    "build": "make",
+    "test": "make test",
+    "todo": "make todo",
+    "clean": "make clean",
+    "superclean": "make superclean",
+    "doc": "make doc",
+    "lint": "make lint",
+    "lintfix": "make lintfix",
+    "cov": "make report-coverage",
     "pub": "npm publish --access public"
   },
   "devDependencies": {
-    "@gerhobbelt/babel-cli": "7.2.1-26",
-    "@gerhobbelt/markdown-it": "8.4.2-24",
-    "standard": "12.0.1"
-  }
+    "@gerhobbelt/markdown-it": "10.0.0-34",
+    "@gerhobbelt/markdown-it-testgen": "0.1.6-7",
+    "browserify": "16.5.1",
+    "chai": "4.2.0",
+    "cross-env": "7.0.2",
+    "eslint": "7.0.0",
+    "mocha": "7.1.2",
+    "nyc": "15.0.1",
+    "rollup": "2.9.0",
+    "rollup-plugin-commonjs": "10.1.0",
+    "rollup-plugin-json": "4.0.0",
+    "rollup-plugin-node-resolve": "5.2.0",
+    "terser": "4.6.13"
+  },
+  "reporter": [
+    "lcov",
+    "text",
+    "text-summary"
+  ]
 }

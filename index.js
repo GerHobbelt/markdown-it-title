@@ -1,4 +1,8 @@
-export default (md, level = 1) => {
+
+'use strict';
+
+
+module.exports = function plugin(md, level = 1) {
   const originalHeadingOpen = md.renderer.rules.heading_open
 
   md.renderer.rules.heading_open = function (...args) {
