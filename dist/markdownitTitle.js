@@ -1,4 +1,4 @@
-/*! markdown-it-title 3.0.0-3 https://github.com//GerHobbelt/markdown-it-title @license Unlicense */
+/*! markdown-it-title 3.0.0-4 https://github.com//GerHobbelt/markdown-it-title @license Unlicense */
 
 function plugin(md, options) {
   const level = 'level' in (options || {}) ? options.level : 1;
