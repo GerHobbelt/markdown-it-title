@@ -1,10 +1,10 @@
-'use strict';
+/* eslint-env mocha, es6 */
 
-/*eslint-env mocha*/
+import assert from 'assert';
+import md from '@gerhobbelt/markdown-it';
 
-const { strictEqual: equal } = require('assert');
-const md = require('@gerhobbelt/markdown-it');
-const title = require('../');
+import plugin from '../index.js';
+
 
 const render = (engine, src) => {
   const env = {};
@@ -13,47 +13,47 @@ const render = (engine, src) => {
 };
 
 const engine = md({ typographer: true, html: true })
-  .use(title);
+  .use(plugin);
 
 describe('markdown-it-title', function () {
   it('extracts entire H1 title, including inline code formatted parts', function () {
-    equal(
+    assert.strictEqual(
       render(engine, '## H2\n\n# Hello, *`world`!(c)*').title,
       'Hello, world!©'
     );
   });
 
   it("finds first H1, even when it's not the first header", function () {
-    equal(
+    assert.strictEqual(
       render(engine, '## H2\n\n# Instance reuse').title,
       'Instance reuse'
     );
   });
 
   it('picks first header when options.level = 0', function () {
-    equal(
-      render(md().use(title, { level:0 }), '## H2\n\n# H1').title,
+    assert.strictEqual(
+      render(md().use(plugin, { level:0 }), '## H2\n\n# H1').title,
       'H2'
     );
   });
 
   it('picks first H2 header when options.level = 2', function () {
-    equal(
-      render(md().use(title, { level:2 }), '# H1\n\n## H2').title,
+    assert.strictEqual(
+      render(md().use(plugin, { level:2 }), '# H1\n\n## H2').title,
       'H2'
     );
   });
 
   it('extracts entire title, including inline HTML parts', function () {
-    equal(
+    assert.strictEqual(
       render(engine, '## H2\n\n# Hello, <span><span> /woild/ </span></span> *!!*').title,
       'Hello,  /woild/  !!'
     );
   });
 
   it('extracts inline HTML as-is, when options.html is not set for markdown-it', function () {
-    equal(
-      render(md().use(title), '## H2\n\n# Hello, <span><span> /woild/ </span></span> *!!*').title,
+    assert.strictEqual(
+      render(md().use(plugin), '## H2\n\n# Hello, <span><span> /woild/ </span></span> *!!*').title,
       'Hello, <span><span> /woild/ </span></span> !!'
     );
   });

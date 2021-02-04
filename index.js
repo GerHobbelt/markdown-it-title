@@ -1,14 +1,12 @@
 
-'use strict';
 
 
-module.exports = function plugin(md, options) {
+
+export default function plugin(md, options) {
   const level = ('level' in (options || {})) ? options.level : 1;
   const originalHeadingOpen = md.renderer.rules.heading_open;
 
-  md.renderer.rules.heading_open = function (...args) {
-    const [ tokens, idx, , env, self ] = args;
-
+  md.renderer.rules.heading_open = function heading_open(tokens, idx, opts, env, self) {
     if (!env.title && (level < 1 || tokens[idx].tag === `h${level}`)) {
       env.title = tokens[idx + 1].children
         .filter(t => t.type === 'text' || t.type === 'code_inline')
@@ -18,8 +16,8 @@ module.exports = function plugin(md, options) {
 
     // Execute original rule.
     if (originalHeadingOpen) {
-      return originalHeadingOpen.apply(this, args);
+      return originalHeadingOpen.call(this, tokens, idx, opts, env, self);
     }
-    return self.renderToken(...args);
+    return self.renderToken(tokens, idx, opts, env, self);
   };
-};
+}
