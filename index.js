@@ -1,7 +1,4 @@
 
-
-
-
 export default function plugin(md, options) {
   const level = ('level' in (options || {})) ? options.level : 1;
   const originalHeadingOpen = md.renderer.rules.heading_open;

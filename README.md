@@ -14,10 +14,10 @@ const md = require('markdown-it')({ typographer: true })
 md.use(require('markdown-it-title'))
 
 // Find whatever heading comes first.
-// md.use(require('markdown-it-title'), 0)
+// md.use(require('markdown-it-title'), { level: 0 })
 
 // Find `<h2>`.
-// md.use(require('markdown-it-title'), 2)
+// md.use(require('markdown-it-title'), { level: 2 })
 
 const env = {}
 md.render('# Hello, *`world`!(c)*', env)
